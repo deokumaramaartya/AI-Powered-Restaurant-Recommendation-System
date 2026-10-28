@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+pandas
+pyarrow
+datasets
+groq
+pytest
+httpx

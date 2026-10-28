@@ -1,0 +1,15 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Node / Vite
+node_modules/
+dist/
+
+# Eval output
+backend/evals/reports/

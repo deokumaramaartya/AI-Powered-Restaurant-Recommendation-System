@@ -1,0 +1,200 @@
+:root {
+  color-scheme: dark;
+
+  /* core palette */
+  --bg: #11171b; /* wet tarmac */
+  --surface: #1a2228; /* slate */
+  --surface-raised: #243039;
+  --surface-sunken: #131a1f;
+  --line: #2f3c45;
+  --line-strong: #4e5f6a; /* perforation */
+  --line-dashed: #3e4d57;
+  --text: #eaeff1; /* mist */
+  --text-soft: #c7d1d6;
+  --muted: #98a7b0; /* drizzle */
+  --faint: #73838c; /* placeholders, ticks */
+  --accent: #f5b84e; /* sodium lamp */
+  --accent-hi: #f8c468;
+  --accent-lo: #e9a632;
+  --accent-ink: #17120a; /* text on accent */
+  --accent-ink-soft: #3a2a10;
+  --accent-pale: #ffe0a8;
+  --accent-tint: rgba(245, 184, 78, 0.08);
+  --accent-edge: rgba(245, 184, 78, 0.22);
+  --ember: #e0814f; /* fallback notice only */
+  --ember-pale: #ffc7a8;
+  --leaf: #7fc2ac; /* available services */
+  --leaf-pale: #b2e0d0;
+  --danger: #f07a6a; /* byadgi chilli */
+
+  /* atmosphere */
+  --page-bg:
+    radial-gradient(1100px 560px at 8% -8%, rgba(245, 184, 78, 0.17), transparent 62%),
+    radial-gradient(800px 480px at 105% 0%, rgba(110, 150, 175, 0.12), transparent 60%),
+    repeating-linear-gradient(104deg, rgba(234, 239, 241, 0.022) 0 1px, transparent 1px 11px),
+    radial-gradient(ellipse 120% 90% at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.5) 100%), var(--bg);
+  --card-bg: linear-gradient(180deg, #1c252c, #161e23);
+  --panel-bg: linear-gradient(180deg, rgba(36, 48, 57, 0.92), rgba(26, 34, 40, 0.92));
+  --cta-bg: linear-gradient(180deg, var(--accent-hi), var(--accent-lo));
+  --stub-bg: #202a31;
+  --shimmer: linear-gradient(90deg, #202a31 0, #2f3c45 50%, #202a31 100%);
+
+  /* type */
+  --font-display: 'Young Serif', Georgia, serif;
+  --font-body: 'Figtree', 'Segoe UI', sans-serif;
+  --fs-hero: clamp(2.875rem, 6vw + 1rem, 5.25rem);
+  --fs-h2: clamp(1.75rem, 2vw + 1rem, 2.25rem);
+  --fs-card: clamp(1.375rem, 1vw + 1rem, 1.6875rem);
+  --fs-lede: 1.1875rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+  --lh-tight: 1.05;
+  --lh-body: 1.55;
+
+  /* shape + space */
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 18px;
+  --r-pill: 999px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 40px;
+  --space-7: 56px;
+  --panel-w: 348px;
+  --content-max: 1200px;
+  --tap: 44px;
+  --shadow-panel: 0 24px 60px rgba(0, 0, 0, 0.35);
+
+  /* motion */
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-settle: 900ms;
+  --dur-rise: 450ms;
+  --stagger: 70ms;
+
+  font: var(--fs-body) / var(--lh-body) var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* The lamp glow, rain haze and vignette stay put while the page scrolls. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--page-bg);
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.9em;
+  padding: 0.05em 0.35em;
+  border-radius: 4px;
+  background: rgba(234, 239, 241, 0.08);
+}
+
+::placeholder {
+  color: var(--faint);
+  opacity: 1;
+}
+
+select option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: -400px 0;
+  }
+  to {
+    background-position: 400px 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
