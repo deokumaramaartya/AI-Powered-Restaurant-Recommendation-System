@@ -13,7 +13,7 @@ The product goal is in [docs/problemStatement.md](docs/problemStatement.md). How
 | LLM | Groq Python SDK. Default model `openai/gpt-oss-120b`, JSON object mode (`response_format: {"type": "json_object"}`) |
 | Frontend | React 19, TypeScript, Vite 8. Styles live in `frontend/src` |
 | Tests | pytest on the backend, Vitest and Testing Library on the frontend |
-| Hosting | API on Railway, UI on Vercel. Steps are in [docs/deployment-plan.md](docs/deployment-plan.md) |
+| Hosting | API on Render, UI on Vercel. Steps are in [docs/deployment-plan.md](docs/deployment-plan.md) |
 
 ## System prompt
 
@@ -263,4 +263,4 @@ Repeating a query that Groq already answered is served from the in-memory cache 
 
 ## Deployment
 
-The API is hosted on Railway and the frontend on Vercel. Steps, environment variables, and a verification checklist are in [docs/deployment-plan.md](docs/deployment-plan.md). Local setup above is unchanged.
+The API is hosted on Render and the frontend on Vercel. Steps, environment variables, and a verification checklist are in [docs/deployment-plan.md](docs/deployment-plan.md). Local setup above is unchanged.

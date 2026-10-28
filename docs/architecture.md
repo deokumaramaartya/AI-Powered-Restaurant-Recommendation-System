@@ -519,13 +519,13 @@ sequenceDiagram
 │   ├── .env.example                # Documents VITE_API_BASE_URL
 │   └── vite.config.ts              # Proxies /api to the backend in dev
 ├── data/
-│   └── restaurants.parquet         # Generated, committed so Railway can serve it
-├── Dockerfile                      # Railway API image
-├── railway.toml                    # Health check and watch paths
+│   └── restaurants.parquet         # Generated, committed so the API image can serve it
+├── Dockerfile                      # API image Render builds
+├── railway.toml                    # Not used by the Render deploy
 └── docs/
     ├── problemStatement.md
     ├── architecture.md
-    └── deployment-plan.md          # Railway + Vercel runbook
+    └── deployment-plan.md          # Render + Vercel runbook
 ```
 
 `recommender.py` is the single orchestration point that the route calls. It keeps the route thin and makes the full flow easy to test with a mocked LLM client.
@@ -616,4 +616,4 @@ Each phase leaves the system runnable, so progress can be demoed after every ste
 - **Multi-city data.** Add datasets for other cities and a city selector.
 - **Unrated restaurants.** Keep restaurants rated `NEW` with a "New" label and let users opt in to seeing them.
 - **Persistence.** Move from Parquet to SQLite or Postgres if data grows or user features are added.
-- **Deployment.** The API is hosted on Railway and the frontend on Vercel. Steps, environment variables, and verification are in [deployment-plan.md](deployment-plan.md).
+- **Deployment.** The API is hosted on Render and the frontend on Vercel. Steps, environment variables, and verification are in [deployment-plan.md](deployment-plan.md).

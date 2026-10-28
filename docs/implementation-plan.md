@@ -113,7 +113,7 @@ Phases 3 and 4 can run in parallel once the Phase 2 API contract is stable, beca
 - `backend/app/services/budget.py`
 - `backend/evals/__init__.py`, `backend/evals/data_profile.py`
 - `backend/tests/test_ingest.py`, `backend/tests/test_budget.py`
-- `data/restaurants.parquet` (generated, committed for Railway)
+- `data/restaurants.parquet` (generated, committed so the API image can serve it)
 
 **Acceptance criteria**
 
